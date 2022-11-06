@@ -95,6 +95,7 @@ public class AddProjectWindow extends Window {
 					DataHandler.addProject(title, description, startDate, endDate, tasksDesc, taskAssignment,
 							taskStatus);
 					JOptionPane.showMessageDialog(null, "Projekti u shtua!", "Sukses", JOptionPane.INFORMATION_MESSAGE);
+					setVisible(false);
 
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog(null, "Projekti nuk mund te shtohet!", "Gabim",

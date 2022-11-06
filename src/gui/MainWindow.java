@@ -34,6 +34,8 @@ import java.awt.Font;
 import javax.swing.UIManager;
 import javax.swing.border.MatteBorder;
 import java.awt.Color;
+import javax.swing.BoxLayout;
+import javax.swing.border.LineBorder;
 /**
  *@author Dardi 
  **/
@@ -67,6 +69,7 @@ public class MainWindow extends Window {
 		getContentPane().setLayout(new GridLayout(2, 1, 0, 0));
 
 		JPanel projectListPanel = new JPanel(new BorderLayout(50, 50));
+		projectListPanel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) Color.LIGHT_GRAY));
 		JPanel detailPanel = new JPanel(new GridLayout(1, 2));
 		detailPanel.setBorder(UIManager.getBorder("ScrollPane.border"));
 
@@ -117,13 +120,13 @@ public class MainWindow extends Window {
 		JScrollPane taskScrollPane = new JScrollPane(taskList);
 		taskScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		taskDetailListPanel.add(taskScrollPane);
-		taskDetailButtonPanel.setLayout(new GridLayout(0, 1, 0, 0));
+		taskDetailButtonPanel.setLayout(new GridLayout(1, 2, 0, 0));
 
 		taskDetailButtonPanel.add(addTaskButton);
 		taskDetailButtonPanel.add(deleteTaskButton);
 
-		taskDetailPanel.add(taskDetailListPanel, BorderLayout.NORTH);
-		taskDetailPanel.add(taskDetailButtonPanel);
+		taskDetailPanel.add(taskDetailListPanel, BorderLayout.CENTER);
+		taskDetailPanel.add(taskDetailButtonPanel, BorderLayout.SOUTH);
 
 		detailPanel.add(projectDetailPanel);
 		detailPanel.add(taskDetailPanel);

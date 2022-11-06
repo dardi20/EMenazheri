@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -42,7 +43,7 @@ public class AddTaskWindow extends Window {
 		JTextField assignmentField = new JTextField();
 		JLabel statusLabel = new JLabel("     Task Status");
 		JTextField statusField = new JTextField();
-		
+
 		setMinimumSize(new Dimension(300, 200));
 		pack();
 		setLocationRelativeTo(null);
@@ -77,7 +78,11 @@ public class AddTaskWindow extends Window {
 				ArrayList<String> employees = new ArrayList<String>();
 				employees.add(assignment);
 				Task task = new Task(description, status, assignment);
+
 				DataHandler.addTask(task, id);
+				JOptionPane.showMessageDialog(null, "Tasku u shtua me sukses!", "Sukses",
+						JOptionPane.INFORMATION_MESSAGE);
+				setVisible(false);
 			}
 		});
 
